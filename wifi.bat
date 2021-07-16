@@ -4,4 +4,4 @@ adb shell wifitest.sh start-softap --ssid 'softap' --psk 'FbRules123'
 adb tcpip 5555
 set /p input="set wifi to softap"
 adb connect 192.168.43.1:5555
-adb -e logcat -s mcuservice
+adb -e logcat -s mcuservice | python stdin2.py
