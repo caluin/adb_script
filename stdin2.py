@@ -48,14 +48,14 @@ class ApplicationWindow(QtWidgets.QMainWindow):
     def _update_canvas2(self):
         count=0
         for line in sys.stdin:
-            if "module_captouch.c(167)" in line:
+            if "module_captouch.c(170)" in line:
                 slider_list = line.split()
                 if self.starttime ==0:
                     self.starttime = int(slider_list[10])
                 self.t_vec[-1] = int(slider_list[10])-self.starttime
                 self.y_vec[-1] = int(slider_list[20])
                 self.b_vec[-1] = int(slider_list[19])
-                print(self.t_vec[-1],self.b_vec[-1],self.y_vec[-1])
+                print(self.t_vec[-1],self.b_vec[-1],self.y_vec[-1],np.mean(self.b_vec),np.mean(self.y_vec))
                 if count==5:
                     self._line.set_data(self.t_vec,self.y_vec)
                     self._lineb.set_data(self.t_vec,self.b_vec)
