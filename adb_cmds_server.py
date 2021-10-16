@@ -51,7 +51,7 @@ class Monitor(QWidget):
     def connect(self):
         def dump_logcat(connection):
             # with open(self.filename,'w') as f:
-            f = open(self.filename,'a')
+            f = open('data/'+ self.filename,'a')
             while self.timer_on:
                 data = connection.read(1024)
                 if not data:
