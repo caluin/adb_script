@@ -10,6 +10,8 @@ set timestamp=%date:~4,2%%date:~7,2%%time:~0,2%%time:~3,2%%date:~10,4%.%time:~6,
 
 @REM ping -n 1 -w %wait_milliseconds% 127.0.0.1 > null
 
+echo "%timestamp%"
+adb root
 adb shell date "%timestamp%"
 adb shell date
 echo %timestamp%

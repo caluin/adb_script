@@ -41,10 +41,11 @@ class Monitor(QWidget):
                 if not from_client_msg : break
                 from_client += str(from_client_msg.decode('utf-8'))
                 print(from_client)
-                self.filename = from_client
-                self.thread0()
                 timestamp = str(datetime.datetime.now())
                 payload = timestamp + ';' + str(from_client_msg) + ';OK'
+                if from_client.endswith('.txt'):
+                    self.filename = from_client
+                    self.thread0()
                 conn.send(bytes(payload,encoding='utf-8'))
         conn.close()
     
